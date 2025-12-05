@@ -13,7 +13,7 @@ class App extends Component {
 
   fetchWeather = async () => {
     const { query } = this.state;
-    const API_KEY = "YOUR_API_KEY_HERE";
+    const API_KEY = "https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${API_KEY}";
 
     if (!query) {
       this.setState({ error: 'Enter a city name.', weather: null });
@@ -46,10 +46,10 @@ class App extends Component {
         <h2>City Weather</h2>
 
         <input
-          type=\"text\"
-          className=\"search\"
+          type="text"
+          className="search"
           value={query}
-          placeholder=\"Enter city name\"
+          placeholder="Enter city name"
           onChange={this.handleInput}
           style={{ padding: '8px', width: '100%', marginBottom: '10px' }}
         />
@@ -64,13 +64,13 @@ class App extends Component {
         {error && <p style={{ color: 'red' }}>{error}</p>}
 
         {weather && (
-          <div className=\"weather\" style={{ marginTop: '20px', padding: '10px', border: '1px solid #ccc' }}>
+          <div className="weather" style={{ marginTop: '20px', padding: '10px', border: '1px solid #ccc' }}>
             <h3>{weather.name}</h3>
             <p>{weather.main.temp}°C</p>
             <p>{weather.weather[0].description}</p>
             <img
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-              alt=\"weather-icon\"
+              alt="weather-icon"
             />
           </div>
         )}
@@ -80,3 +80,4 @@ class App extends Component {
 }
 
 export default App;
+
