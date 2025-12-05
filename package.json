@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-color 2>output.txt",
+    "test": "jest --ci --testResultsProcessor=jest-junit",
     "start": "webpack-dev-server --mode development --watch --open --hot",
     "build": "webpack --mode production"
   },
@@ -12,14 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "0.21.0",
+    "cypress": "^9.5.0",
     "css-loader": "^4.3.0",
     "jest-junit": "^11.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
     "webpack-cli": "^3.3.12",
-    "cypress": "^9.5.0"
+     "axios": "0.21.0"
   },
   "jest": {
     "moduleNameMapper": {
