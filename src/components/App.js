@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class WeatherApp extends Component {
+class App extends Component {
   state = {
     query: '',
     weather: null,
@@ -24,6 +24,7 @@ class WeatherApp extends Component {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${API_KEY}&units=metric`
       );
+
       const data = await res.json();
 
       if (data.cod !== 200) {
@@ -45,13 +46,14 @@ class WeatherApp extends Component {
         <h2>City Weather</h2>
 
         <input
-          type="text"
-          className="search"
+          type=\"text\"
+          className=\"search\"
           value={query}
-          placeholder="Enter city name"
+          placeholder=\"Enter city name\"
           onChange={this.handleInput}
           style={{ padding: '8px', width: '100%', marginBottom: '10px' }}
         />
+
         <button
           onClick={this.fetchWeather}
           style={{ padding: '8px 12px', cursor: 'pointer' }}
@@ -62,13 +64,13 @@ class WeatherApp extends Component {
         {error && <p style={{ color: 'red' }}>{error}</p>}
 
         {weather && (
-          <div className="weather" style={{ marginTop: '20px', padding: '10px', border: '1px solid #ccc' }}>
+          <div className=\"weather\" style={{ marginTop: '20px', padding: '10px', border: '1px solid #ccc' }}>
             <h3>{weather.name}</h3>
             <p>{weather.main.temp}°C</p>
             <p>{weather.weather[0].description}</p>
             <img
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-              alt="weather-icon"
+              alt=\"weather-icon\"
             />
           </div>
         )}
@@ -77,5 +79,4 @@ class WeatherApp extends Component {
   }
 }
 
-export default WeatherApp;
-
+export default App;
